@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Team</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Team</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <ion-button expand="block" (click)="addPokemon()" class="btn-add-pokemon mb-3">
+          <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+          Add Pokémon
+        </ion-button>
+  
+        <!-- Cards de Pokémon en el equipo -->
+        <div class="row">
+          <div class="col-md-4" *ngFor="let pokemon of team">
+            <div class="card mb-3">
+              <div class="card-img-container">
+                <img [src]="pokemon.imageUrl" class="card-img-top" alt="...">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ pokemon.nickname }}</h5>
+                <p class="card-text">
+                  <span *ngFor="let type of pokemon.types" class="badge bg-secondary me-1">{{ type }}</span>
+                </p>
+                <p class="card-text">Habilidad: {{ pokemon.abilities && pokemon.abilities.length > 0 ? pokemon.abilities[0].name : 'Sin habilidad' }}</p>
+                <table class="table">
+                  <tbody>
+                    <tr *ngFor="let pokemon of filteredPokemons">
+                      <td>{{ pokemon.stats.hp }}</td>
+                      <td>{{ pokemon.stats.atk }}</td>
+                      <td>{{ pokemon.stats.def }}</td>
+                      <td>{{ pokemon.stats.spa }}</td>
+                      <td>{{ pokemon.stats.spd }}</td>
+                      <td>{{ pokemon.stats.bst }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p class="card-text">Movimientos: {{ pokemon.moves.join(', ') }}</p>
+              </div>
+              <div class="card-footer d-flex justify-content-end">
+                <button (click)="editPokemon(pokemon)" class="btn btn-outline-primary me-2">
+                  <ion-icon name="create"></ion-icon>
+                </button>
+                <button (click)="deletePokemon(pokemon)" class="btn btn-outline-danger">
+                  <ion-icon name="trash"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</ion-content>
+
+
+

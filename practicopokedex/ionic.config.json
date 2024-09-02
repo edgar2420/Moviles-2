@@ -1,0 +1,7 @@
+{
+  "name": "practicopokedex",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

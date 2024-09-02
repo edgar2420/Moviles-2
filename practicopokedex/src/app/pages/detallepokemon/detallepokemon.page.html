@@ -1,0 +1,254 @@
+<ion-content class="contenido">
+  <div class="contenido_header">
+    <ion-icon name="arrow-back" class="contenido_header_back"></ion-icon>
+    <ion-label class="contenido_header_title" style="text-transform: uppercase">{{nombre}}</ion-label>
+    <div class="contenido_header_data">
+      <div class="contenido_header_img">
+        <ion-img src="{{imagen}}"></ion-img>
+      </div>
+      <div class="contenido_header_info">
+        <p class="contenido_header_info_number">{{numberId}}</p>
+        <h1 class="contenido_header_info_name">{{nombre}}</h1>
+        <div class="contenido_header_tipos">
+          <p class="contenido_header_tipos_text">
+            <div class="contenerdor_pokemon_elementos" *ngFor="let item of pokemon.types">
+              <div class="contenerdor_pokemon_elemento contenerdor_pokemon_elementos_{{item.type.name}}">
+                <ion-icon src="../../assets/types/{{item.type.name}}.svg" class="contenerdor_pokemon_icon"></ion-icon>
+                <h3>
+                  {{item.type.name}}
+                </h3>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="header_botones">
+      <p (click)="showAbout()" class="boton1">About</p>
+      <p (click)="showStats()" class="boton2">Stats</p>
+      <p (click)="showEvolution()" class="boton3">Evolution</p>
+    </div>
+  </div>
+
+  <div class="detail__container" *ngIf="about">
+    <div class="detail_container_data">
+      <p class="about__text">Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking
+        up the sun's rays, the
+        seed grows progressively larger.</p>
+      <h1 class="detail_data_title">Pokédex Data</h1>
+      <div class="about_data_info">
+        <h1>Species</h1>
+        <p>Seed Pokémon</p>
+      </div>
+      <div class="about_data_info">
+        <h1>Height</h1>
+        <p>2'04"</p>
+      </div>
+      <div class="about_data_info">
+        <h1>Weight</h1>
+        <p>15.2 lbs</p>
+      </div>
+      <div class="about_data_info">
+        <h1>Abilities</h1>
+        <p>Overgrow</p>
+      </div>
+      <div class="about_data_info">
+        <h1>Weaknesses</h1>
+        <p>Fire, Flying, Ice, Psychic</p>
+      </div>
+      <h1 class="detail_data_title">Training</h1>
+      <div class="about_data_info">
+        <h1>EV Yield</h1>
+        <p>1 Special Attack</p>
+      </div>
+      <div class="about_data_info">
+        <h1>Catch Rate</h1>
+        <p>45 (5.9% with PokéBall, full HP)</p>
+      </div>
+      <div class="about_data_info">
+        <h1>Base Friendship</h1>
+        <p>70 (Medium Fast)</p>
+      </div>
+      <div class="about_data_info">
+        <h1>Base Exp</h1>
+        <p>64</p>
+      </div>
+      <div class="about_data_info">
+        <h1>Growth Rate</h1>
+        <p>Medium Slow</p>
+      </div>
+      <h1 class="detail_data_title">Breeding</h1>
+      <div class="about_data_info">
+        <h1>Gender</h1>
+        <p>♀ 87.5%, ♂ 12.5%</p>
+      </div>
+      <div class="about_data_info">
+        <h1>Egg Groups</h1>
+        <p>Monster, Grass</p>
+      </div>
+      <div class="about_data_info">
+        <h1>Egg Cycles</h1>
+        <p>20 (5100 steps)</p>
+      </div>
+      <h1 class="detail_data_title">Location</h1>
+      <div class="about_data_info">
+        <h1>001</h1>
+        <p>Red, Blue, Yellow</p>
+      </div>
+      <div class="about_data_info">
+        <h1>226</h1>
+        <p>Gold, Silver, Crystal</p>
+      </div>
+      <div class="about_data_info">
+        <h1>001</h1>
+        <p>(FireRed/LeafGreen)</p>
+      </div>
+      <div class="about_data_info">
+        <h1>231</h1>
+        <p>(HeartGold/SoulSilver)</p>
+      </div>
+      <div class="about_data_info">
+        <h1>080</h1>
+        <p>(X/Y - Central Kalos)</p>
+      </div>
+      <div class="about_data_info">
+        <h1>001</h1>
+        <p>(Let's Go Pikachu/Let's Go Eevee)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail__container" *ngIf="stats">
+    <div class="detail_container_data">
+      <h1 class="detail_data_title1">Base Stats</h1>
+      <div class="stats__container">
+        <div class="stats_data_info" *ngFor="let stat of pokemon.stats">
+          <h1>{{stat.stat.name}}</h1>
+          <p>{{stat.base_stat}}</p>
+          <ion-progress-bar value="0.45" color="dark"></ion-progress-bar>
+          <p [textContent]="stat.stat.name === 'hp' ? calculateMinHpStatValue(stat.base_stat) : calculateMinStatValue(stat.base_stat)"></p>
+          <p [textContent]="stat.stat.name === 'hp' ? calculateMaxHpStatValue(stat.base_stat) : calculateMaxStatValue(stat.base_stat)"></p>
+        </div>
+        <div class="stats_data_info">
+          <h1>Total</h1>
+          <p style="font-weight: 700;">318</p>
+          <h1>Min</h1>
+          <h1>Max</h1>
+        </div>
+        <p class="stats__text">The ranges shown on the right are for a level 100 Pokémon. Maximum values are based on a
+          beneficial nature, 252 EVs, 31 IVs; minimum values are based on a hindering nature, 0 EVs, 0 IVs.</p>
+        <h1 class="detail_data_title">Type Defenses</h1>
+        <p class="about__text">The effectiveness of each type on Bulbasaur.</p>
+        <div class="stats__icons">
+          <div class="stats_icons_layer">
+            <ion-icon src="../../assets/types/normal.svg" class="type__normal"></ion-icon>
+            <ion-icon src="../../assets/types/fire.svg" class="type__fire"></ion-icon>
+            <ion-icon src="../../assets/types/water.svg" class="type__water"></ion-icon>
+            <ion-icon src="../../assets/types/electric.svg" class="type__electric"></ion-icon>
+            <ion-icon src="../../assets/types/grass.svg" class="type__grass"></ion-icon>
+            <ion-icon src="../../assets/types/ice.svg" class="type__ice"></ion-icon>
+            <ion-icon src="../../assets/types/fighting.svg" class="type__fighting"></ion-icon>
+            <ion-icon src="../../assets/types/poison.svg" class="type__poison"></ion-icon>
+            <ion-icon src="../../assets/types/ground.svg" class="type__ground"></ion-icon>
+          </div>
+          <div class="stats_icons_layer">
+            <p class="type__normal">{{typeDefenses['normal']}}</p>
+            <p class="type__fire">{{typeDefenses['fire']}}</p>
+            <p class="type__water">{{typeDefenses['water']}}</p>
+            <p class="type__electric">{{typeDefenses['electric']}}</p>
+            <p class="type__grass">{{typeDefenses['grass']}}</p>
+            <p class="type__ice">{{typeDefenses['ice']}}</p>
+            <p class="type__fighting">{{typeDefenses['fighting']}}</p>
+            <p class="type__poison">{{typeDefenses['poison']}}</p>
+            <p class="type__ground">{{typeDefenses['ground']}}</p>
+          </div>
+          <div class="stats_icons_layer">
+            <ion-icon src="../../assets/types/flying.svg" class="type__flying"></ion-icon>
+            <ion-icon src="../../assets/types/psychic.svg" class="type__psychic"></ion-icon>
+            <ion-icon src="../../assets/types/bug.svg" class="type__bug"></ion-icon>
+            <ion-icon src="../../assets/types/rock.svg" class="type__rock"></ion-icon>
+            <ion-icon src="../../assets/types/ghost.svg" class="type__ghost"></ion-icon>
+            <ion-icon src="../../assets/types/dragon.svg" class="type__dragon"></ion-icon>
+            <ion-icon src="../../assets/types/dark.svg" class="type__dark"></ion-icon>
+            <ion-icon src="../../assets/types/steel.svg" class="type__steel"></ion-icon>
+            <ion-icon src="../../assets/types/fairy.svg" class="type__fairy"></ion-icon>
+          </div>
+          <div class="stats_icons_layer">
+            <p class="type__flying">{{typeDefenses['flying']}}</p>
+            <p class="type__psychic">{{typeDefenses['psychic']}}</p>
+            <p class="type__bug">{{typeDefenses['bug']}}</p>
+            <p class="type__rock">{{typeDefenses['rock']}}</p>
+            <p class="type__ghost">{{typeDefenses['ghost']}}</p>
+            <p class="type__dragon">{{typeDefenses['dragon']}}</p>
+            <p class="type__dark">{{typeDefenses['dark']}}</p>
+            <p class="type__steel">{{typeDefenses['steel']}}</p>
+            <p class="type__fairy">{{typeDefenses['fairy']}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-content [fullscreen]="true" *ngIf="false">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">detallepokemon</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <h1>Base Stats</h1>
+    <ion-list>
+      <ion-item *ngFor="let stat of pokemon.stats">
+        <ion-label>{{stat.stat.name}}</ion-label>
+        <ion-label slot="end">{{stat.base_stat}}</ion-label>
+        <!-- pasarle un valor de una variable a ion-labe -->
+        <ion-label slot="end"
+          [textContent]="stat.stat.name === 'hp' ? calculateMinHpStatValue(stat.base_stat) : calculateMinStatValue(stat.base_stat)"></ion-label>
+        <ion-label slot="end"
+          [textContent]="stat.stat.name === 'hp' ? calculateMaxHpStatValue(stat.base_stat) : calculateMaxStatValue(stat.base_stat)"></ion-label>
+      </ion-item>
+    </ion-list>
+
+    <p>The ranges shown on the right are for a level 100 Pokémon. Maximum values are based on a beneficial nature, 252
+      EVs, 31 IVs; minimum values are based on a hindering nature, 0 EVs, 0 IVs.</p>
+
+    <h1>Type Defenses</h1>
+    <h2>The effectiveness of each type on {{pokemon.name}}</h2>
+    <ion-list>
+      <ion-item *ngFor="let type of pokemon.types">
+        <ion-label>{{type.type.name}}</ion-label>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+  <ion-content [fullscreen]="true" *ngIf="false">
+    <!-- evoluciones del pokemon -->
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">detallepokemon</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <h2>Evolution Chart</h2>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Evolutions</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let evolution of pokemonEvolutions">
+            <ion-avatar slot="start">
+              <img [src]="evolution.species.image" />
+            </ion-avatar>
+            <ion-label>
+              <h2>{{ evolution.species.name }}</h2>
+              <p>
+                Trigger: {{ evolution.trigger?.name || 'Unknown' }} | Min Level:
+                {{ evolution.min_level || 'Unknown' }}
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>

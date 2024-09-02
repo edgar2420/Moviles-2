@@ -1,0 +1,435 @@
+.contenido {
+    --background: #8BBE8A;
+}
+
+.contenido_header {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    background-color: #8BBE8A;
+
+    .contenido_header_back {
+        position: absolute;
+        left: 10%;
+        right: 10%;
+        top: 11.05%;
+        bottom: 11.05%;
+        font-size: 25px;
+        color: white;
+    }
+
+    .contenido_header_title {
+        position: absolute;
+        width: 650px;
+        height: 119px;
+        left: -86px;
+        top: 25px;
+        font-family: 'SF Pro Display Bold';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 100px;
+        line-height: 119px;
+        text-align: center;
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+        -webkit-text-fill-color: transparent;
+    }
+
+    .contenido_header_img {
+        position: absolute;
+        width: 125px;
+        height: 125px;
+        left: 40px;
+        top: 95px;
+    }
+
+    .contenido_header_info_number {
+        position: absolute;
+        width: 39px;
+        height: 19px;
+        left: 190px;
+        top: 114px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: rgba(23, 23, 27, 0.6);
+    }
+
+    .contenido_header_info_name {
+        position: absolute;
+        width: 280px;
+        height: 38px;
+        left: 190px;
+        top: 133px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 38px;
+        color: #FFFFFF;
+    }
+
+    .contenido_header_tipos {
+        justify-content: center;
+        text-align: center;
+        width: 61px;
+        height: 25px;
+        position: absolute;
+        left: 190px;
+        top: 180px;
+        margin-top: 5px;
+    }
+
+    .boton1 {
+        position: absolute;
+        width: 45px;
+        height: 19px;
+        left: 46px;
+        top: 281px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+
+    .boton2 {
+        position: absolute;
+        width: 39px;
+        height: 19px;
+        left: 187px;
+        top: 281px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+    .boton3 {
+        position: absolute;
+        width: 68px;
+        height: 19px;
+        left: 311px;
+        top: 281px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: flex-end;
+        text-align: center;
+        color: #FFFFFF;
+    }
+
+    // contenedor tipos
+
+    .contenerdor_pokemon_elementos {
+        position: relative;
+        margin: 0px;
+        margin-left: 20px;
+        top: 0px;
+        left: -20px;
+        display: inline-flex;
+
+        .contenerdor_pokemon_elemento {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7% 15%;
+            border-radius: 10%;
+
+            h3 {
+                /* Pokemon Type */
+                font-family: 'SF Pro Display';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                margin: 0px 5%;
+                /* Text / White */
+                color: #FFFFFF;
+            }
+        }
+
+        .contenerdor_pokemon_elementos_grass {
+            background-color: #62B957;
+        }
+
+        .contenerdor_pokemon_elementos_poison {
+            background-color: #A552CC;
+        }
+
+        .contenerdor_pokemon_elementos_fire {
+            background-color: #FD7D24;
+        }
+
+        .contenerdor_pokemon_elementos_water {
+            background-color: #4A90DA;
+        }
+
+        .contenerdor_pokemon_elementos_bug {
+            background-color: #8CB230;
+        }
+
+        .contenerdor_pokemon_elementos_flying {
+            background-color: #748FC9;
+        }
+
+        .contenerdor_pokemon_elementos_normal {
+            background-color: #9DA0AA;
+        }
+    }
+
+    // contenedor about
+    .content {
+        --background: #8BBE8A;
+    }
+
+    .header__container {
+        position: relative;
+        width: 100%;
+        height: 350px;
+        background-color: #8BBE8A;
+
+        .header_container_back {
+            position: absolute;
+            left: 10%;
+            right: 10%;
+            top: 11.05%;
+            bottom: 11.05%;
+            font-size: 25px;
+            color: rgb(0, 0, 0);
+        }
+
+        .header_container_title {
+            position: absolute;
+            width: 650px;
+            height: 119px;
+            left: -86px;
+            top: 25px;
+            font-family: 'SF Pro Display Bold';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 100px;
+            line-height: 119px;
+            text-align: center;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header_container_img {
+            position: absolute;
+            width: 125px;
+            height: 125px;
+            left: 40px;
+            top: 95px;
+        }
+
+        .header_containerinfo_number {
+            position: absolute;
+            width: 39px;
+            height: 19px;
+            left: 190px;
+            top: 114px;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            color: rgba(23, 23, 27, 0.6);
+        }
+
+        .header_containerinfo_name {
+            position: absolute;
+            width: 148px;
+            height: 38px;
+            left: 190px;
+            top: 133px;
+            font-family: 'SF Pro Display';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 38px;
+            color: #FFFFFF;
+        }
+
+        .header_container_types {
+            justify-content: center;
+            text-align: center;
+            width: 61px;
+            height: 25px;
+            position: absolute;
+            left: 190px;
+            top: 180px;
+            margin-top: 5px;
+        }
+
+        .header_containertypes_icon {
+            font-size: 15px;
+        }
+
+        .header_containertypes_text {
+            font-size: 12px;
+            background-color: #62B957;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .header__button1 {
+            position: absolute;
+            width: 45px;
+            height: 19px;
+            left: 46px;
+            top: 281px;
+            font-family: 'SF Pro Display';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            display: flex;
+            align-items: flex-end;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .header__button2 {
+            position: absolute;
+            width: 39px;
+            height: 19px;
+            left: 187px;
+            top: 281px;
+            font-family: 'SF Pro Display';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            display: flex;
+            align-items: flex-end;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        .header__button3 {
+            position: absolute;
+            width: 68px;
+            height: 19px;
+            left: 311px;
+            top: 281px;
+            font-family: 'SF Pro Display';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            display: flex;
+            align-items: flex-end;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+    }
+}
+
+.detail__container {
+    border-radius: 30px 30px 0px 0px;
+    background-color: rgb(0, 0, 0);
+
+    .detail_container_data {
+        padding: 20px 40px;
+    }
+
+    .about__text {
+        font-size: 15px;
+        line-height: 19px;
+        color: #747476;
+    }
+
+    .detail_data_title {
+        font-size: 16px;
+        color: #62B957;
+        font-weight: 700;
+        margin-top: 30px;
+        margin-bottom: 22px;
+    }
+
+    .detail_data_title1 {
+        font-size: 16px;
+        color: #62B957;
+        font-weight: 700;
+        margin-top: 10px;
+        margin-bottom: 22px;
+    }
+
+    .about_data_info {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .about_data_info h1 {
+        margin: 0;
+        font-size: 12px;
+        color: #17171B;
+        width: 85px;
+    }
+
+    .about_data_info p {
+        margin: 0;
+        font-size: 16px;
+        color: #747476;
+    }
+
+    .stats_data_info {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .stats_data_info h1 {
+        margin: 0;
+        font-size: 12px;
+        color: #17171B;
+        width: 85px;
+    }
+
+    .stats_data_info p {
+        margin: 0;
+        font-size: 16px;
+        color: #747476;
+    }
+
+    .stats_data_info p:nth-child(4) {
+        text-align: right;
+        margin-right: 20px;
+    }
+
+    .stats_data_info ion-progress-bar {
+        width: 100px;
+        margin-left: 20px;
+        margin-top: 5px;
+        margin-right: 40px;
+    }
+
+    .stats__text {
+        font-size: 12px;
+        line-height: 14px;
+        color: #747476;
+    }
+
+    .stats__icons {
+        margin-top: 30px;
+    }
+
+    .stats_icons_layer {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 40px;
+    }
+}

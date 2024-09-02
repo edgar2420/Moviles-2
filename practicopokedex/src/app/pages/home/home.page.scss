@@ -1,0 +1,520 @@
+ion-toolbar {
+  // quitar el color de fondo
+  --background: transparent;
+  --border-style: none;
+  background-color: ivory;
+}
+
+.contenedor {
+  margin-left: 8%;
+  margin-right: 8%;
+
+  .titulo {
+    /* Application Title */
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    /* Text / Black */
+    color: #17171B;
+  }
+
+  .descripcion {
+    /* Description */
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    width: 90%;
+
+    /* Text / Gray */
+    color: #747476;
+  }
+
+  .contenedor_busqueda {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    background: #F2F2F2;
+    border-radius: 10px;
+    margin-top: 8%;
+
+    ion-searchbar {
+      padding: 0;
+      margin: 0 5%;
+      --background: transparent;
+      /* Placeholder */
+
+      /* Description */
+      font-family: 'SF Pro Display';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  .contenerdor_pokemon {
+    position: relative;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    // formula: 7rem = 7 * 16px = 112px
+    height: 7rem;
+    border-radius: 10px;
+
+    .numero {
+      position: absolute;
+      width: 29px;
+      height: 14px;
+      left: 20px;
+      top: 20px;
+      margin: 0;
+
+      /* Pokemon Number */
+      font-family: 'SF Pro Display';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 14px;
+
+      /* Text/Number */
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .nombre {
+      /* Bulbasaur */
+
+      position: absolute;
+      width: 120px;
+      height: 31px;
+      left: 20px;
+      top: 34px;
+      margin: 0;
+
+      /* Pokemon Name */
+      font-family: 'SF Pro Display';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 31px;
+
+      /* identical to box height */
+
+      /* Text / White */
+      color: #FFFFFF;
+    }
+
+    .contenerdor_pokemon_puntitos {
+      position: absolute;
+      width: 74px;
+      height: 32px;
+      left: 90px;
+      top: 5px;
+    }
+
+    .contenerdor_pokemon_img {
+      /* 01 */
+
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      right: 10px;
+      top: -25px;
+    }
+
+    .contenerdor_pokemon_elementos {
+      position: relative;
+      margin: 0px;
+      margin-left: 20px;
+      top: 68px;
+      // quiero que mis contenedores de alineen de forma horizontal
+      display: inline-flex;
+
+      .contenerdor_pokemon_elemento {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7% 15%;
+        border-radius: 10%;
+
+        h3 {
+          /* Pokemon Type */
+          font-family: 'SF Pro Display';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 14px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          margin: 0px 5%;
+          /* Text / White */
+          color: #000000;
+        }
+      }
+
+      .contenerdor_pokemon_elementos_grass {
+        background-color: #62B957;
+      }
+
+      .contenerdor_pokemon_elementos_poison {
+        background-color: #A552CC;
+      }
+
+      .contenerdor_pokemon_elementos_fire {
+        background-color: #FD7D24;
+      }
+
+      .contenerdor_pokemon_elementos_water {
+        background-color: #0c3866;
+      }
+
+      .contenerdor_pokemon_elementos_bug {
+        background-color: #8CB230;
+      }
+
+      .contenerdor_pokemon_elementos_flying {
+        background-color: #748FC9;
+      }
+
+      .contenerdor_pokemon_elementos_normal {
+        background-color: #9DA0AA;
+      }
+    }
+  }
+
+  .contenerdor_pokemon_grass {
+    background-color: #8bbe8a;
+  }
+
+  .contenerdor_pokemon_fire {
+    background-color: #ffa756;
+  }
+
+  .contenerdor_pokemon_water {
+    background-color: #58abf6;
+  }
+
+  .contenerdor_pokemon_bug {
+    background-color: #8bd674;
+  }
+
+  .contenerdor_pokemon_normal {
+    background-color: #b5b9c4;
+  }
+
+  .contenerdor_pokemon_poison {
+    background-color: #9f6e97;
+  }
+
+  .contenerdor_pokemon_electric {
+    background-color: #f2cb55;
+  }
+
+  .contenerdor_pokemon_ground {
+    background-color: #f78551;
+  }
+
+  .contenerdor_pokemon_fairy {
+    background-color: #eba8c3;
+  }
+
+  .contenedor_filtros {
+    border-radius: 80px;
+  }
+}
+
+ion-modal {
+  --border-radius: 35px;
+
+  // darle un borde redondeado a las esquinas superiores
+  .contenedor_filtros {
+    margin-left: 25px;
+    margin-top: 20px;
+
+    h2 {
+      /* Filter Title */
+      font-family: 'SF Pro Display';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      /* identical to box height */
+      /* Text / Black */
+      color: #17171B;
+      margin-top: 30px;
+    }
+
+    .contenedor_filtros_titulo {
+      /* Pokemon Name */
+      font-family: 'SF Pro Display';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 31px;
+
+      /* identical to box height */
+
+      /* Text / Black */
+      color: #17171B;
+    }
+
+    .contenedor_filtros_descripcion {
+      /* Description */
+      font-family: 'SF Pro Display';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      width: 340px;
+      /* Text / Gray */
+      color: #747476;
+    }
+
+    .contenedor_filtros_botones {
+      ion-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 60px;
+        margin-bottom: 20px;
+
+        ion-button {
+          /* Description */
+          font-family: 'SF Pro Display';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 19px;
+          /* identical to box height */
+          display: flex;
+          align-items: center;
+          text-align: center;
+          /* Text / White */
+          color: #FFFFFF;
+          /* Inside auto layout */
+          flex: none;
+          order: 0;
+          flex-grow: 0;
+
+          width: 160px;
+          height: 60px;
+          /* Type / Psychic */
+          background: #EA5D60;
+          border-radius: 10px;
+        }
+
+        .reset {
+          background: #F2F2F2;
+          /* Text / Gray */
+          color: #747476;
+        }
+      }
+    }
+  }
+}
+
+// carrusel
+
+.carrusel {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 0%;
+  width: 100%;
+  height: 50px;
+
+  scrollbar-width: none;
+  /* Oculta el scroll en Firefox */
+  -ms-overflow-style: none;
+}
+
+.carrusel-slide {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding: 12.5px;
+  width: 48px;
+  height: 48px;
+  // background-color: rgb(135, 217, 11);
+
+  flex-shrink: 0;
+  margin: 0px 16px 0px 0px;
+  border-radius: 50%;
+
+  ion-icon {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.carrusel::-webkit-scrollbar {
+  display: none;
+}
+
+.carrusel:hover .carrusel-slide {
+  cursor: grab;
+}
+
+.carrusel:active .carrusel-slide {
+  cursor: grabbing;
+}
+
+.carrusel::-webkit-scrollbar {
+  width: 0;
+}
+
+.carrusel-slide {
+  transition: background-color 0.3s ease;
+}
+
+.carrusel-slide:active,
+.carrusel-slide:focus {
+  background-color: #ccc;
+  /*color de fondo cuando se hace clic o tiene el foco*/
+}
+
+// ion range
+
+ion-range::part(pin) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: white;
+  color: #747476;
+
+  border-radius: 50%;
+  transform: scale(1.01);
+
+  top: 20px;
+  margin-left: 5px;
+  margin-top: 5px;
+  min-width: 28px;
+  height: 28px;
+  transition: transform 120ms ease, background 120ms ease;
+}
+
+ion-range::part(pin)::before {
+  content: none;
+}
+
+ion-range {
+  --bar-background: #F2F2F2;
+  --bar-background-active: #EA5D60;
+  --bar-height: 4px;
+  --bar-border-radius: 8px;
+  --knob-background: #EA5D60;
+  --knob-size: 15px;
+  --pin-background: #EA5D60;
+  --pin-color: #fff;
+  padding-left: 2%;
+  padding-right: 10%;
+}
+
+ion-range::part(knob) {
+  background: white;
+  border: 5px solid #EA5D60;
+  margin-top: -5px;
+}
+
+// sort
+
+.contenedor_sort_botones {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.contenedor_sort_botones ion-button {
+  display: block;
+  --background: #F2F2F2;
+  --color: #747476;
+  --box-shadow: none;
+  --border-radius: 10px;
+  margin: 20px 40px;
+  height: 60px;
+}
+
+.contenedor_sort {
+  margin: 40px;
+}
+
+.contenedor_sort_title h1 {
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.contenedor_sort_title p {
+  color: #747476;
+  font-size: 16px;
+}
+
+// generaciones
+.container__filter {
+  margin: 40px;
+}
+
+.container_filter_title h1 {
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.container_filter_title p {
+  color: #747476;
+  font-size: 16px;
+}
+.container__generations {
+  width: 100%;
+}
+
+
+.container_generations_layer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.container__generation {
+  position: relative;
+  width: 160px;
+  height: 129px;
+  background-color: #F2F2F2;
+  border-radius: 10px;
+
+}
+
+.container__generation ion-icon {
+  width: 100%;
+  height: 45px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.container__generation p {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#container_generation_especial{
+  background-color: #EA5D60;
+}
+
+.container_generation_points{
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}

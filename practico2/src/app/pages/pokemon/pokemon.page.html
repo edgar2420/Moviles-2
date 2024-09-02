@@ -1,0 +1,61 @@
+<ion-header [translucent]="true" class="showdown-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/team" class="showdown-back-button"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="showdown-title">Pokémon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="showdown-content">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" class="showdown-title">Pokémon</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-searchbar placeholder="Buscar Pokémon" (ionChange)="searchPokemon($event.detail.value)" class="showdown-searchbar"></ion-searchbar>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Sort</th>
+                <th scope="col">Name</th>
+                <th scope="col">Types</th>
+                <th scope="col">Abilities</th>
+                <th scope="col">HP</th>
+                <th scope="col">Attack</th>
+                <th scope="col">Defense</th>
+                <th scope="col">Special Attack</th>
+                <th scope="col">Special Defense</th>
+                <th scope="col">Total Base Stats</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pokemon of filteredPokemons" (click)="agregarteam(pokemon)">
+                <td>
+                  <img [src]="getPokemonImageUrl(pokemon.id)" alt="Pokemon Image" class="img-fluid rounded-circle">
+                </td>
+                <td><b>{{ pokemon.name }}</b></td>
+                <td>
+                  <span *ngFor="let type of pokemon.types" class="badge badge-primary" [style.backgroundColor]="getBackgroundColor(type.toLowerCase())">{{ type }}</span>
+                </td>
+                <td>{{ pokemon.abilities.join(', ') }}</td>
+                <td>{{ pokemon.stats.hp }}</td>
+                <td>{{ pokemon.stats.atk }}</td>
+                <td>{{ pokemon.stats.def }}</td>
+                <td>{{ pokemon.stats.spa }}</td>
+                <td>{{ pokemon.stats.spd }}</td>
+                <td>{{ pokemon.stats.bst }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,300 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar>
+    <ion-buttons slot="end" class="ion-margin">
+      <ion-button id="open-modalGenerations" expand="block">
+        <ion-icon src="../../assets/icons/generation.svg"></ion-icon>
+      </ion-button>
+      <ion-button id="open-modalSort" expand="block">
+        <ion-icon src="../../assets/icons/sort.svg"></ion-icon>
+      </ion-button>
+      <ion-button id="open-modalFilters" expand="block">
+        <ion-icon src="../../assets/icons/filter.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-modal  #modal trigger="open-modalGenerations" [initialBreakpoint]="0.9" class="modal">
+    <ng-template>
+      <ion-content>
+        <div class="container__filter">
+          <div class="container_filter_title">
+            <h1>Generations</h1>
+            <p>Use search for generations to explore your Pokémon!</p>
+          </div>
+        </div>
+        <div class="container__generations">
+          <div class="container_generations_layer">
+            <div class="container__generation" id="generation-i" (click)="generationSeleccionada('generation-i')">
+              <ion-icon src="../../assets/generations/generation1.svg"></ion-icon>
+              <p>Generation I</p>
+              <ion-img src="../../assets/generations/back1.svg" class="container_generation_points"></ion-img>
+            </div>
+            <div class="container__generation" id="generation-ii" (click)="generationSeleccionada('generation-ii')">
+              <ion-icon src="../../assets/generations/generation2.svg"></ion-icon>
+              <p>Generation II</p>
+              <ion-img src="../../assets/generations/back1.svg" class="container_generation_points"></ion-img>
+            </div>
+          </div>
+          <div class="container_generations_layer">
+            <div class="container__generation" id="generation-iii" (click)="generationSeleccionada('generation-iii')">
+              <ion-icon src="../../assets/generations/generation3.svg"></ion-icon>
+              <p>Generation III</p>
+              <ion-img src="../../assets/generations/back1.svg" class="container_generation_points"></ion-img>
+            </div>
+            <div class="container__generation" id="generation-iv" (click)="generationSeleccionada('generation-iv')">
+              <ion-icon src="../../assets/generations/generation4.svg"></ion-icon>
+              <p>Generation IV</p>
+              <ion-img src="../../assets/generations/back1.svg" class="container_generation_points"></ion-img>
+            </div>
+          </div>
+          <div class="container_generations_layer">
+            <div class="container__generation" id="generation-v" (click)="generationSeleccionada('generation-v')">
+              <ion-icon src="../../assets/generations/generation5.svg"></ion-icon>
+              <p>Generation V</p>
+              <ion-img src="../../assets/generations/back1.svg" class="container_generation_points"></ion-img>
+            </div>
+            <div class="container__generation" id="generation-vi" (click)="generationSeleccionada('generation-vi')">
+              <ion-icon src="../../assets/generations/generation6.svg"></ion-icon>
+              <p>Generation VI</p>
+              <ion-img src="../../assets/generations/back1.svg" class="container_generation_points"></ion-img>
+            </div>
+          </div>
+          <div class="container_generations_layer">
+            <div class="container__generation" id="generation-vii" (click)="generationSeleccionada('generation-vii')">
+              <ion-icon src="../../assets/generations/generation7.svg"></ion-icon>
+              <p>Generation VII</p>
+              <ion-img src="../../assets/generations/back1.svg" class="container_generation_points"></ion-img>
+            </div>
+            <div class="container__generation" id="generation-viii" (click)="generationSeleccionada('generation-viii')">
+              <ion-icon src="../../assets/generations/generation8.svg"></ion-icon>
+              <p>Generation VIII</p>
+              <ion-img src="../../assets/generations/back1.svg" class="container_generation_points"></ion-img>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal #modal trigger="open-modalSort" [initialBreakpoint]="0.9" class="modal">
+    <ng-template>
+      <ion-content>
+        <div class="contenedor_sort">
+          <div class="contenedor_sort_title">
+            <h1>Sort</h1>
+            <p>Sort Pokémons alphabetically or by National Pokédex number!</p>
+          </div>
+        </div>
+        <div class="contenedor_sort_botones">
+          <ion-button class="button_sort" id="smallest_number_first" style="text-transform: none" (click)="selectSort('smallest_number_first')">Smallest number first</ion-button>
+          <ion-button class="button_sort" id="highest_number_first" style="text-transform: none" (click)="selectSort('highest_number_first')">Highest number first</ion-button>
+          <ion-button class="button_sort" id="a-z" (click)="selectSort('a-z')">A-Z</ion-button>
+          <ion-button class="button_sort" id="z-a" (click)="selectSort('z-a')">Z-A</ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal #modal trigger="open-modalFilters" [initialBreakpoint]="0.9" [breakpoints]="[0, 0.25, 0.5, 0.75]"
+    class="modal" id="modal-filters">
+    <ng-template>
+      <ion-content>
+        <div class="contenedor_filtros">
+          <div class="contenedor_filtros_titulo">
+            <h1 class="contenedor_filtros_titulo">Filters</h1>
+            <p class="contenedor_filtros_descripcion">Use advanced search to explore Pokémon by type, weakness, height
+              and more!</p>
+          </div>
+          <h2>Types</h2>
+          <div class="carrusel">
+            <div class="carrusel-slide tipo" id="type_bug" (click)="tipoSeleccionado('type_bug')">
+              <ion-icon src="../../assets/types/bug.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_dark" (click)="tipoSeleccionado('type_dark')">
+              <ion-icon src="../../assets/types/dark.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_dragon" (click)="tipoSeleccionado('type_dragon')">
+              <ion-icon src="../../assets/types/dragon.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_electric" (click)="tipoSeleccionado('type_electric')">
+              <ion-icon src="../../assets/types/electric.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_fairy" (click)="tipoSeleccionado('type_fairy')">
+              <ion-icon src="../../assets/types/fairy.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_fighting" (click)="tipoSeleccionado('type_fighting')">
+              <ion-icon src="../../assets/types/fighting.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_fire" (click)="tipoSeleccionado('type_fire')">
+              <ion-icon src="../../assets/types/fire.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_flying" (click)="tipoSeleccionado('type_flying')">
+              <ion-icon src="../../assets/types/flying.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_ghost" (click)="tipoSeleccionado('type_ghost')">
+              <ion-icon src="../../assets/types/ghost.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_grass" (click)="tipoSeleccionado('type_grass')">
+              <ion-icon src="../../assets/types/grass.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_ground" (click)="tipoSeleccionado('type_ground')">
+              <ion-icon src="../../assets/types/ground.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_ice" (click)="tipoSeleccionado('type_ice')">
+              <ion-icon src="../../assets/types/ice.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_normal" (click)="tipoSeleccionado('type_normal')">
+              <ion-icon src="../../assets/types/normal.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_poison" (click)="tipoSeleccionado('type_poison')">
+              <ion-icon src="../../assets/types/poison.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_psychic" (click)="tipoSeleccionado('type_psychic')">
+              <ion-icon src="../../assets/types/psychic.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_rock" (click)="tipoSeleccionado('type_rock')">
+              <ion-icon src="../../assets/types/rock.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_steel" (click)="tipoSeleccionado('type_steel')">
+              <ion-icon src="../../assets/types/steel.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide tipo" id="type_water" (click)="tipoSeleccionado('type_water')">
+              <ion-icon src="../../assets/types/water.svg"></ion-icon>
+            </div>
+          </div>
+
+          <h2>Weaknesses</h2>
+          <div class="carrusel">
+            <div class="carrusel-slide peso" id="weakness_bug" (click)="weaknesseSeleccionada('weakness_bug')">
+              <ion-icon src="../../assets/types/bug.svg" class=""></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_dark" (click)="weaknesseSeleccionada('weakness_dark')">
+              <ion-icon src="../../assets/types/dark.svg" class=""></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_dragon" (click)="weaknesseSeleccionada('weakness_dragon')">
+              <ion-icon src="../../assets/types/dragon.svg" class=""></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_electric" (click)="weaknesseSeleccionada('weakness_electric')">
+              <ion-icon src="../../assets/types/electric.svg" class=""></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_fairy" (click)="weaknesseSeleccionada('weakness_fairy')">
+              <ion-icon src="../../assets/types/fairy.svg" class=""></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_fighting" (click)="weaknesseSeleccionada('weakness_fighting')">
+              <ion-icon src="../../assets/types/fighting.svg" class=""></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_fire" (click)="weaknesseSeleccionada('weakness_fire')">
+              <ion-icon src="../../assets/types/fire.svg" class=""></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_flying" (click)="weaknesseSeleccionada('weakness_flying')">
+              <ion-icon src="../../assets/types/flying.svg" class="type__flying"></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_ghost" (click)="weaknesseSeleccionada('weakness_ghost')">
+              <ion-icon src="../../assets/types/ghost.svg" class="type__ghost"></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_grass" (click)="weaknesseSeleccionada('weakness_grass')">
+              <ion-icon src="../../assets/types/grass.svg" class="type__grass"></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_ground" (click)="weaknesseSeleccionada('weakness_ground')">
+              <ion-icon src="../../assets/types/ground.svg" class="type__ground"></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_ice" (click)="weaknesseSeleccionada('weakness_ice')">
+              <ion-icon src="../../assets/types/ice.svg" class="type__ice"></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_normal" (click)="weaknesseSeleccionada('weakness_normal')">
+              <ion-icon src="../../assets/types/normal.svg" class="type__normal"></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_poison" (click)="weaknesseSeleccionada('weakness_poison')">
+              <ion-icon src="../../assets/types/poison.svg" class="type__poison"></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_psychic" (click)="weaknesseSeleccionada('weakness_psychic')">
+              <ion-icon src="../../assets/types/psychic.svg" class="type__psychic"></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_rock" (click)="weaknesseSeleccionada('weakness_rock')">
+              <ion-icon src="../../assets/types/rock.svg" class="type__rock"></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_steel" (click)="weaknesseSeleccionada('weakness_steel')">
+              <ion-icon src="../../assets/types/steel.svg" class="type__steel"></ion-icon>
+            </div>
+            <div class="carrusel-slide peso" id="weakness_water" (click)="weaknesseSeleccionada('weakness_water')">
+              <ion-icon src="../../assets/types/water.svg" class=""></ion-icon>
+            </div>
+          </div>
+
+          <h2>Heights</h2>
+          <div class="carrusel">
+            <div class="carrusel-slide" id="height_short" (click)="heightSeleccionado('height_short')">
+              <ion-icon src="../../assets/heights/short.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide" id="height_medium" (click)="heightSeleccionado('height_medium')">
+              <ion-icon src="../../assets/heights/medium.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide" id="height_tall" (click)="heightSeleccionado('height_tall')">
+              <ion-icon src="../../assets/heights/tall.svg"></ion-icon>
+            </div>
+          </div>
+
+          <h2>Weights</h2>
+          <div class="carrusel">
+            <div class="carrusel-slide" id="weight_light" (click)="weightSeleccionado('weight_light')">
+              <ion-icon src="../../assets/weights/light.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide" id="weight_medium" (click)="weightSeleccionado('weight_medium')">
+              <ion-icon src="../../assets/weights/normal.svg"></ion-icon>
+            </div>
+            <div class="carrusel-slide" id="weight_heavy" (click)="weightSeleccionado('weight_heavy')">
+              <ion-icon src="../../assets/weights/heavy.svg"></ion-icon>
+            </div>
+          </div>
+
+          <h2>Number Range</h2>
+
+            <ion-range aria-label="Dual Knobs Range" [dualKnobs]="true" [value]="{ lower: rangeValue.lower, upper: rangeValue.upper }" 
+            [pin]="true" (ionChange)="updateRangeValue($event)"></ion-range>
+
+          <div class="contenedor_filtros_botones">
+            <ion-buttons slot="end" class="ion-margin">
+              <ion-button (click)="resetFilters()" class="reset">
+                Reset
+              </ion-button>
+              <ion-button (click)="applyFilters()">
+                Apply
+              </ion-button>
+            </ion-buttons>
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <div class="contenedor">
+    <h1 class="titulo">Pokédex</h1>
+    <h2 class="descripcion">Search for Pokémon by name or using the National Pokédex number.</h2>
+
+    <div class="contenedor_busqueda">
+      <ion-searchbar (ionInput)="buscarPokemon($event)"
+        placeholder="What a Pokémon are you looking for?"></ion-searchbar>
+    </div>
+
+    <div class="contenerdor_pokemon contenerdor_pokemon_{{resultado.types[0].type.name}}"
+      *ngFor="let resultado of listaPokemon" (click)="verPokemon(resultado.id)">
+      <img src="../../assets/patterns/6x3.svg" class="contenerdor_pokemon_puntitos">
+      <p class="numero">#{{resultado.id}}</p>
+      <h1 class="nombre">{{resultado.name}}</h1>
+
+      <div class="contenerdor_pokemon_elementos" *ngFor="let item of resultado.types">
+        <div class="contenerdor_pokemon_elemento contenerdor_pokemon_elementos_{{item.type.name}}">
+          <ion-icon src="../../assets/types/{{item.type.name}}.svg" class="contenerdor_pokemon_icon"></ion-icon>
+          <h3>
+            {{item.type.name}}
+          </h3>
+        </div>
+      </div>
+      <img [src]="resultado.sprites.other?.['official-artwork']?.front_default" class="contenerdor_pokemon_img">
+    </div>
+  </div>
+</ion-content>
