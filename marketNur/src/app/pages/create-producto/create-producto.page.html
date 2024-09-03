@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Creación de Producto
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="facebook-style">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <ion-list class="ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input formControlName="titulo" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Descripción</ion-label>
+        <ion-textarea formControlName="descripcion" required></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Precio</ion-label>
+        <ion-input formControlName="precio" type="number" required></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">Categoría</ion-label>
+        <ion-select formControlName="categoria" placeholder="Selecciona una categoría">
+          <ion-select-option *ngFor="let category of categories" [value]="category">{{ category }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Imágenes</ion-label>
+        <input type="file" multiple accept="image/*" (change)="onFileChange($event)" formControlName="imagenes">
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="full" type="submit" class="facebook-button">
+      <ion-icon slot="start" name="send"></ion-icon>
+      Crear Producto
+    </ion-button>
+  </form>
+</ion-content>

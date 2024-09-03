@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="facebook-title" text-center>Inicio Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="facebook-style">
+  <form #myForm="ngForm" class="ion-text-center">
+    <ion-item class="facebook-input">
+      <ion-label class="facebook-label">Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="formData.username" name="username" placeholder="Usuario"></ion-input>
+    </ion-item>
+
+    <ion-item class="facebook-input">
+      <ion-label class="facebook-label">Contraseña</ion-label>
+      <ion-input type="password" [(ngModel)]="formData.password" name="password" placeholder="Contraseña"></ion-input>
+    </ion-item>
+
+    <br>
+    <ion-button expand="block" type="button" class="facebook-button" (click)="onClick()">
+      Iniciar Sesión
+    </ion-button>
+  </form>
+
+  <br>
+  <a href="/registro" class="facebook-link ion-text-center">Registrarme</a>
+</ion-content>

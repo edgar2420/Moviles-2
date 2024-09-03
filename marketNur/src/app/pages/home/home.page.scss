@@ -1,0 +1,35 @@
+/* Estilos para la barra de búsqueda */
+ion-searchbar {
+    margin: 10px;
+}
+
+  /* Estilos para la lista de categorías */
+ion-list {
+    margin: 10px;
+}
+
+ion-item-group {
+    margin-bottom: 10px;
+}
+
+ion-item-divider {
+    background-color: #f0f2f5; /* Color de fondo de la división entre categorías */
+    font-weight: bold;
+}
+
+ion-item {
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+ion-item:hover {
+    background-color: #e4e6eb; /* Cambia el fondo al pasar el ratón sobre una categoría */
+    transition: background-color 0.3s ease;
+}
+
+
+  /* Estilos para el botón de añadir producto */
+ion-fab-button {
+    --background: #1877f2; /* Color de fondo del botón */
+    --box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra del botón */
+}

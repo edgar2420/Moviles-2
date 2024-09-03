@@ -1,0 +1,60 @@
+<ion-header [translucent]="true" class="facebook-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    </ion-buttons>
+
+    <ion-title class="facebook-title">Proyecto Final</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="redirectToLogin()">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button (click)="showCategories()">
+        <ion-icon name="funnel"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar (ionInput)="searchProducts($event.target.value)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-list *ngIf="showCategoriesFlag && categories.length > 0">
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Categorías</ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let category of categories" (click)="filterItems($event, category)">
+      {{ category }}
+    </ion-item>
+  </ion-item-group>
+</ion-list>
+
+<ion-content (click)="redirectToDetail()" [fullscreen]="true" class="facebook-content">
+  <ion-card *ngFor="let item of products" class="product-card">
+    <ion-card-header>
+      <ion-card-title>{{ item.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-img *ngIf="item.images !== undefined && item.images !== null; else defaultImage" [src]="item.images"></ion-img>
+    <ng-template #defaultImage>
+      <ion-img src="assets/icon/marketplace.png"></ion-img>
+    </ng-template>
+    <ion-card-content>
+      <app-product-card-component [product]="item"></app-product-card-component>
+      {{ item.price === 0 ? 'Gratis' : item.price | currency:'Bs':'symbol':'1.2-2' }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title size="large" class="facebook-title-condensed">Proyecto Final</ion-title>
+  </ion-toolbar>
+</ion-header>

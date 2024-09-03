@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="irAInicio()">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Detalle</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="irAPerfil()">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <!-- Barra de búsqueda -->
+  <ion-toolbar>
+    <ion-searchbar placeholder="Buscar" (ionInput)="buscar($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="detallesProducto">
+    <ion-img [src]="detallesProducto.imagenes[0]" alt="Foto del artículo"></ion-img>
+
+    <ion-card-header>
+      <ion-card-title>{{ detallesProducto.titulo }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Precio: ${{ detallesProducto.precio }}</p>
+      <p>Descripción: {{ detallesProducto.descripcion }}</p>
+      <p>Estado: {{ detallesProducto.estado }}</p>
+      <p>Categoría: {{ detallesProducto.categoria }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

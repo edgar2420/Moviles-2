@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    </ion-buttons>
+    <ion-title>Marketplace</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="chat()">
+        <ion-icon name="chatbubbles"></ion-icon>
+      </ion-button>
+      <ion-button (click)="showCategories()">
+        <ion-icon name="funnel"></ion-icon>
+      </ion-button>
+      <ion-button (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems($event)" placeholder="Buscar productos"></ion-searchbar>
+
+  <ion-list *ngIf="showCategoriesFlag && categories.length > 0">
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Categorías</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let category of categories" (click)="filterItems($event, category)">
+        {{ category }}
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+
+  <ion-card *ngFor="let item of filteredList" class="product-card">
+    <ion-card-header>
+      <ion-card-title>{{ item.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <app-product-card-component [product]="item"></app-product-card-component>
+      <p class="product-price">{{ item.price | currency:'Bs':'symbol':'1.2-2' }}</p>
+      
+      <!-- Verificar si hay una imagen, de lo contrario, mostrar una imagen predeterminada -->
+      <ion-img *ngIf="item.images !== undefined && item.images !== null; else defaultImage" [src]="item.images"></ion-img>
+      <ng-template #defaultImage>
+        <ion-img src="assets/icon/marketplace.png"></ion-img>
+      </ng-template>
+      
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="redirectToCreateProduct()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
